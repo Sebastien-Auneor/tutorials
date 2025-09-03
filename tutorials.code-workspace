@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../odoo"
+		},
+		{
+			"path": "../training_management"
+		},
+		{
+			"path": "../enterprise"
+		}
+	],
+	"settings": {}
+}
