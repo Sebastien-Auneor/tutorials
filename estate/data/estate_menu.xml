@@ -8,7 +8,8 @@
         </menuitem>
         <menuitem id="estate_menu_settings" name="Settings">
             <menuitem id="estate_menu_properties_type_action" action="estate_type_model_action"/>
+            <menuitem id="estate_menu_properties_tag_action" action="estate_tag_model_action"/>
+            <menuitem id="estate_menu_properties_offer_action" action="estate_offer_model_action"/>
         </menuitem>
     </menuitem>
-
 </odoo>

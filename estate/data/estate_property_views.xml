@@ -17,6 +17,7 @@
                 <field name="date_availability"/>
                 <field name="expected_price"/>
                 <field name="selling_price"/>
+                <field name="tag_ids" widget="many2many_tags"/>
             </list>
         </field>
     </record>
@@ -32,6 +33,10 @@
                             <field name="name" string="Property Name"/>
                         </h1>
                     </div>
+                    <div>
+                        <field name="tag_ids" widget="many2many_tags"/>
+                    </div>
+
                     <group>
                         <group>
                             <field name="postcode"/>
@@ -54,6 +59,16 @@
                                 <field name="garden"/>
                                 <field name="garden_area"/>
                                 <field name="garden_orientation"/>
+                            </group>
+                        </page>
+                        <page string="Offers">
+                            <field name="offer_ids"/>
+                        </page>
+                        <page string="Other Information">
+                            <group>
+                                <field name="property_type_id"/>
+                                <field name="buyer_id"/>
+                                <field name="salesperson_id"/>
                             </group>
                         </page>
                     </notebook>

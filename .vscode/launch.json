@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Odoo",
+            "type": "python",
+            "request": "launch",
+            "program": "/home/sebastien/git/odoo/odoo-bin",
+            "args": [
+                "-c", "odoo.conf",
+                "-d", "test",
+                "-u", "estate",
+                "--dev", "xml"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "/home/sebastien/git/odoo",
+            "python": "/home/sebastien/miniconda3/envs/odoo_18/bin/python"
+        }
+    ]
+}
