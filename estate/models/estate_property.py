@@ -14,7 +14,7 @@ class EstatePropertyModel(models.Model):
     postcode = fields.Char()
     date_availability = fields.Date(copy=False, default=lambda self: fields.Date.today() + relativedelta(months=3))
     expected_price = fields.Float(required=True)
-    selling_price = fields.Float(readonly=True, copy=False)
+    selling_price = fields.Float(readonly=True, copy=False, default=0.0)
     bedrooms = fields.Integer(default=2)
     living_area = fields.Integer()
     facades = fields.Integer()
@@ -47,7 +47,7 @@ class EstatePropertyModel(models.Model):
     best_price = fields.Float(compute="_compute_best_price", string="Best Offer")
     
     _sql_constraints = [
-        ('expected_price_positive', 'CHECK(expected_price >float_compare 0)', "The expected price must be positive."),
+        ('expected_price_positive', 'CHECK(expected_price > 0)', "The expected price must be positive."),
         ('selling_price_positive', 'CHECK(selling_price >= 0)', "The selling price must be positive."),
     ]
     
