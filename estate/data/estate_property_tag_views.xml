@@ -17,6 +17,7 @@
                             <field name="name" string="Tag Name"/>
                         </h1>
                     </div>
+                    <field name="color" widget="color"/>
                 </sheet>
             </form>
         </field>
