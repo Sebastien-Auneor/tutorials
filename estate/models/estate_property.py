@@ -8,6 +8,11 @@ from odoo.tools.float_utils import float_compare
 class EstatePropertyModel(models.Model):
     _name = "estate.property"
     _description = "An estate property model"
+    _sql_constraints = [
+        ('expected_price_positive', 'CHECK(expected_price > 0)', "The expected price must be positive."),
+        ('selling_price_positive', 'CHECK(selling_price >= 0)', "The selling price must be positive."),
+    ]
+    _order = "id desc"
 
     name = fields.Char(required=True)
     description = fields.Text()
@@ -46,10 +51,6 @@ class EstatePropertyModel(models.Model):
     total_area = fields.Float(compute="_compute_total_area")
     best_price = fields.Float(compute="_compute_best_price", string="Best Offer")
     
-    _sql_constraints = [
-        ('expected_price_positive', 'CHECK(expected_price > 0)', "The expected price must be positive."),
-        ('selling_price_positive', 'CHECK(selling_price >= 0)', "The selling price must be positive."),
-    ]
     
     @api.depends('living_area', 'garden_area')
     def _compute_total_area(self):
