@@ -30,7 +30,7 @@
             </form>
         </field>
     </record>
-    
+
     <record id="estate_offer_list" model="ir.ui.view">
         <field name="name">estate.property.offer.list</field>
         <field name="model">estate.property.offer</field>
@@ -41,10 +41,10 @@
                 <field name="price"/>
                 <field name="validity"/>
                 <field name="date_deadline"/>
-                <button name="action_accept" string="Accept" type="object" icon="fa-check"/>
-                <button name="action_refuse" string="Refuse" type="object" icon="fa-times"/>
+                <button name="action_accept" string="Accept" type="object" icon="fa-check" invisible="status!='pending'" />
+                <button name="action_refuse" string="Refuse" type="object" icon="fa-times" invisible="status!='pending'" />
                 <field name="status"/>
-            </list> 
+            </list>
         </field>
     </record>
 </odoo>
