@@ -12,9 +12,17 @@
         <field name="arch" type="xml">
             <form string="Estate Property Type">
                 <sheet>
+                    <div>
+                        <button class="oe_stat_button" name="%(estate_offer_model_action)d"
+                            icon="fa-gavel"
+                            type="action">
+                            <field name="offer_count" string="Offers" widget="statinfo" />
+                        </button>
+                    </div>
+
                     <div class="oe_title">
                         <h1>
-                            <field name="name" string="Type Name"/>
+                            <field name="name" string="Type Name" />
                         </h1>
                     </div>
 
@@ -22,9 +30,9 @@
                         <page string="Properties">
                             <field name="property_ids">
                                 <list>
-                                    <field name="name"/>
-                                    <field name="expected_price"/>
-                                    <field name="state"/>
+                                    <field name="name" />
+                                    <field name="expected_price" />
+                                    <field name="state" />
                                 </list>
                             </field>
                         </page>
@@ -39,9 +47,10 @@
         <field name="model">estate.property.type</field>
         <field name="arch" type="xml">
             <list string="List of Property Types">
-                <field name="sequence" widget="handle"/>
-                <field name="name"/>
-                <field name="property_ids" widget="many2many_tags"/>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="property_ids" widget="many2many_tags" />
+                <field name="offer_count" />
             </list>
         </field>
     </record>
