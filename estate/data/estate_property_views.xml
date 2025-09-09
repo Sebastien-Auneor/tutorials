@@ -4,20 +4,24 @@
         <field name="name">Estate property</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">list,form,kanban</field>
+        <field name="context">{'search_default_filter_available': True}</field>
     </record>
 
     <record id="estate_list" model="ir.ui.view">
         <field name="name">estate.property.list</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <list string="Liste des propriétés">
+            <list string="Liste des propriétés" 
+                  decoration-success="state=='offer_received'" 
+                  decoration-bf="state=='offer_accepted'" 
+                  decoration-muted="state=='sold'">
                 <field name="name"/>
                 <field name="postcode"/>
-                <field name="state"/>
                 <field name="date_availability" optional="hide"/>
                 <field name="expected_price"/>
                 <field name="selling_price"/>
                 <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="state"/>
             </list>
         </field>
     </record>
@@ -93,7 +97,7 @@
                 <field name="postcode" />
                 <field name="expected_price"/>
                 <field name="bedrooms"/>
-                <field name="living_area"/>
+                <field name="living_area" filter_domain="[('living_area', '>=', self)]"/>
                 <field name="facades"/>
                 <filter name="filter_available" string="Available" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer_received')]"/>
                 <filter name="post_code_group" string="Postcode" context="{'group_by':'postcode'}"/>
