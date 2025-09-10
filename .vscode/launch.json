@@ -9,7 +9,7 @@
             "args": [
                 "-c", "odoo.conf",
                 "-d", "test",
-                "-u", "estate_account",
+                "-u", "estate",
                 "--dev", "xml"
             ],
             "console": "integratedTerminal",
