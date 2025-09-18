@@ -1,13 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "../odoo"
+			"path": "../../odoo"
 		},
 		{
-			"path": "../training_management"
+			"path": "../../training_management"
 		},
 		{
-			"path": "../enterprise"
+			"path": "../../enterprise"
 		},
 		{
 			"path": ".."

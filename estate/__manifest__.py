@@ -7,12 +7,18 @@
     "application": True,
     "license": "LGPL-3",
     "data": [
-        "data/ir.model.access.csv",
+        "security/ir.model.access.csv",
         "data/estate_property_views.xml",
         "data/estate_property_tag_views.xml",
         "data/estate_property_offer_views.xml",
         "data/estate_property_res_user.xml",
         "data/estate_property_type_views.xml",
         "data/estate_menu.xml",
+        "demo/estate.property.type.csv",
+        "demo/demo_data.xml",
+    ],
+    "demo": [
+        "demo/estate.property.type.csv",
+        "demo/demo_data.xml",
     ],
 }
