@@ -10,7 +10,8 @@
                 "-c", "odoo.conf",
                 "-d", "test",
                 "-u", "estate",
-                "--dev", "xml"
+                "--dev", "xml",
+                "--addons-path", "/home/sebastien/git/odoo/addons,/home/sebastien/git/enterprise,/home/sebastien/git/tutorials"
             ],
             "console": "integratedTerminal",
             "cwd": "/home/sebastien/git/odoo",
