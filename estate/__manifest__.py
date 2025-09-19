@@ -19,9 +19,9 @@
         "demo/demo_data.xml",
         
         "security/security.xml",
+        "demo/demo_data.xml"
     ],
     "demo": [
         "demo/estate.property.type.csv",
-        "demo/demo_data.xml",
     ],
 }

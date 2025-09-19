@@ -7,6 +7,10 @@ class EstateAccount(models.Model):
     def action_sold(self):
         print("Creating the journal entry for the sale...")
         # Create an empty account.move for the invoice
+        # Check access rights before creating the invoice
+        self.env["account.move"].check_access('create')  # Check invoice creation access
+        print(" reached ".center(100, '='))
+
         self.env["account.move"].create(
             {
                 "partner_id": self.buyer_id.id,
