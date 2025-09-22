@@ -1,5 +1,6 @@
 from datetime import timedelta
 from odoo import fields, models, api
+from odoo.exceptions import UserError
 
 
 class EstatePropertyOffer(models.Model):
@@ -81,7 +82,11 @@ class EstatePropertyOffer(models.Model):
     def create(self, vals_list):
         # Ensure only one accepted offer per property
         for vals in vals_list:
-            self.env["estate.property"].browse(vals.get("property_id")).write(
-                {"state": "offer_received"}
-            )
+            property_id = vals.get("property_id")
+            if property_id:
+                property_record = self.env["estate.property"].browse(property_id)
+                # Check if property is already sold
+                if property_record.state == "sold":
+                    raise UserError("Cannot create an offer for a sold property.")
+                property_record.write({"state": "offer_received"})
         return super().create(vals_list)

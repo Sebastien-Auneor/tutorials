@@ -93,11 +93,19 @@ class EstatePropertyModel(models.Model):
             if record.garden:
                 record.garden_area = 10
                 record.garden_orientation = "north"
+            else:
+                record.garden_area = 0
+                record.garden_orientation = False
 
     def action_sold(self):
         for record in self:
             if record.state == "canceled":
                 raise UserError("Canceled properties cannot be sold.")
+            
+            # Check if there are any accepted offers
+            accepted_offers = record.offer_ids.filtered(lambda offer: offer.status == "accepted")
+            if not accepted_offers:
+                raise UserError("Cannot sell a property with no accepted offers.")
 
             record.state = "sold"
             record.selling_price = record.best_price
