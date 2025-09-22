@@ -19,7 +19,7 @@
 		"configurations": [
 			{
 				"name": "Run Odoo",
-				"type": "python",
+				"type": "debugpy",
 				"request": "launch",
 				"program": "/home/sebastien/git/odoo/odoo-bin",
 				"args": [
@@ -35,7 +35,7 @@
 			},
 			{
 				"name": "Test Odoo",
-				"type": "python",
+				"type": "debugpy",
 				"request": "launch",
 				"program": "/home/sebastien/git/odoo/odoo-bin",
 				"args": [
